@@ -1,0 +1,157 @@
+/* Umum */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Header */
+.header {
+  background: white;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-input {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-outline {
+  padding: 0.4rem 0.8rem;
+  background: none;
+  border: 1px solid #007bff;
+  color: #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary-sm {
+  background: #007bff;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* Hero Section */
+.hero {
+  background: #f8f9fa;
+  padding: 3rem 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Filter */
+.filter-bar {
+  margin-bottom: 1rem;
+}
+
+.filter-bar select {
+  padding: 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body h5 {
+  margin: 0 0 0.5rem 0;
+}
+
+.card-body p {
+  color: #666;
+  margin: 0;
+}
+
+/* Submit Section */
+.submit-section {
+  background: #007bff;
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.btn-light {
+  background: white;
+  color: #007bff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Footer */
+.footer {
+  background: white;
+  color: #888;
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid #eee;
+}
