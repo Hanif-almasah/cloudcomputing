@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri UMKM</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-dark">
+  <header class="bg-white border-bottom sticky-top">
+    <div class="container py-3 d-flex flex-wrap justify-content-between align-items-center">
+      <h1 class="h4 text-primary fw-bold mb-2 mb-md-0">GaleriUMKM</h1>
+      <form class="d-flex me-2" role="search">
+        <input class="form-control me-2" type="search" placeholder="Cari usaha..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Cari</button>
+      </form>
+      <a href="#submit" class="btn btn-primary btn-sm">Submit Usaha</a>
+    </div>
+  </header>
+
+  <section class="text-center py-5 bg-light">
+    <div class="container">
+      <h2 class="display-5 fw-bold mb-3">Jelajahi Galeri Usaha Lokal</h2>
+      <p class="lead text-muted">Kami menampilkan foto-foto terbaik dari para pelaku UMKM di seluruh Indonesia. Ayo dukung mereka dengan melihat, membagikan, dan membeli produk lokal!</p>
+    </div>
+  </section>
+
+  <section class="py-3">
+    <div class="container">
+      <div class="mb-4">
+        <label for="kategori" class="form-label fw-semibold">Filter Kategori:</label>
+        <select class="form-select w-auto d-inline-block" id="kategori">
+          <option selected>Semua</option>
+          <option value="makanan">Makanan & Minuman</option>
+          <option value="kerajinan">Kerajinan</option>
+          <option value="fashion">Fashion</option>
+          <option value="jasa">Jasa</option>
+        </select>
+      </div>
+      <div class="row g-4">
+        <!-- Contoh galeri foto -->
+        <div class="col-md-4" data-kategori="makanan">
+          <div class="card h-100 shadow-sm">
+            <img src="https://source.unsplash.com/400x300/?bakery" class="card-img-top" alt="Foto UMKM">
+            <div class="card-body">
+              <h5 class="card-title">Roti Mami</h5>
+              <p class="card-text text-muted">Bandung</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-kategori="kerajinan">
+          <div class="card h-100 shadow-sm">
+            <img src="https://source.unsplash.com/400x300/?craft" class="card-img-top" alt="Foto UMKM">
+            <div class="card-body">
+              <h5 class="card-title">Kriya Cinta</h5>
+              <p class="card-text text-muted">Yogyakarta</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-kategori="makanan">
+          <div class="card h-100 shadow-sm">
+            <img src="https://source.unsplash.com/400x300/?coffee" class="card-img-top" alt="Foto UMKM">
+            <div class="card-body">
+              <h5 class="card-title">Kopi Pagi</h5>
+              <p class="card-text text-muted">Jakarta</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tambahkan lebih banyak foto di sini -->
+      </div>
+    </div>
+  </section>
+
+  <section id="submit" class="py-5 bg-primary text-white text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Punya Usaha UMKM?</h2>
+      <p class="mb-4">Kirimkan foto dan info usahamu agar tampil di galeri kami!</p>
+      <a href="#" class="btn btn-light text-primary fw-semibold">Kirim Sekarang</a>
+    </div>
+  </section>
+
+  <footer class="bg-white border-top py-4 text-center text-muted small">
+    &copy; 2025 GaleriUMKM. Dibuat oleh kelompok mata kuliah Cloud Computing untuk UMKM Indonesia.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Filter berdasarkan kategori
+    document.getElementById('kategori').addEventListener('change', function() {
+      const selected = this.value;
+      const cards = document.querySelectorAll('[data-kategori]');
+      cards.forEach(card => {
+        if (selected === 'Semua' || card.dataset.kategori === selected) {
+          card.classList.remove('d-none');
+        } else {
+          card.classList.add('d-none');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
