@@ -16,6 +16,10 @@ body {
   text-align: center;
 }
 
+.form {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
 .plain-link {
   text-decoration: none;
   color: inherit;
@@ -141,6 +145,7 @@ body {
   display: block;
 }
 
+
 .card-body {
   padding: 1rem;
 }
@@ -175,7 +180,7 @@ body {
 /* Footer */
 .footer {
   background: white;
-  color: #888;
+  color: #161616;
   text-align: center;
   font-size: 0.85rem;
   padding: 1.5rem 1rem;

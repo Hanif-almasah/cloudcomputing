@@ -16,7 +16,19 @@
 
 .form-text {
     font-size: 13px;
-    color: #666;
+    color: #666666;
+    text-align: center;
+}
+
+.form-text strong {
+    font-size: 13px;
+    color: #0082ec;
+    text-align: center;
+}
+
+.form-text strong:hover {
+    font-size: 13px;
+    color: #005eac;
     text-align: center;
 }
 
@@ -90,10 +102,37 @@ div.login {
     }
 }
 
+#slideshow {
+    width: 100%;
+    /* atau misalnya 300px */
+    height: 250px;
+    /* tinggi tetap */
+    object-fit: cover;
+    /* atau 'contain' sesuai kebutuhan */
+    border-radius: 10px;
+    /* opsional: biar lebih halus */
+}
+
+@media (max-width: 768px) {
+    #slideshow {
+        display: none;
+    }
+}
+
+/* //tansisi */
+.fade-img {
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
 /* Card login */
 .card {
     background-color: white;
-    padding: 30px 40px;
+    padding: 5px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     width: 360px;
