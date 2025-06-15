@@ -16,57 +16,81 @@ body {
   text-align: center;
 }
 
+.plain-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 /* Header */
 .header {
-  background: white;
-  border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background-color: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  flex-wrap: wrap;
 }
 
 .logo {
-  color: #007bff;
-  font-weight: bold;
   font-size: 1.5rem;
-  margin: 0.5rem 0;
+  font-weight: bold;
+  color: #333;
 }
 
 .search-form {
   display: flex;
-  gap: 0.5rem;
+  flex: 1;
+  max-width: 500px;
 }
 
 .search-input {
-  padding: 0.4rem;
+  flex: 1;
+  padding: 0.5rem 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
 }
 
 .btn-outline {
-  padding: 0.4rem 0.8rem;
-  background: none;
+  padding: 0.5rem 1rem;
   border: 1px solid #007bff;
+  background-color: transparent;
   color: #007bff;
-  border-radius: 4px;
+  border-radius: 0 4px 4px 0;
   cursor: pointer;
 }
 
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .btn-primary-sm {
-  background: #007bff;
-  color: white;
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
   border-radius: 4px;
   text-decoration: none;
   font-size: 0.9rem;
 }
+
+.btn-danger-sm {
+  padding: 0.5rem 1rem;
+  background-color: #ff2600;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
 
 /* Hero Section */
 .hero {

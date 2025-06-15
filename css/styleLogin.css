@@ -5,13 +5,83 @@
     padding: 0;
 }
 
-body {
+body.form {
     height: 100vh;
     background: linear-gradient(to right, #4facfe, #00f2fe);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+div.login {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    height: 100vh;
+    /* agar tinggi penuh layar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.profile-left {
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-right {
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.profile-info {
+    font-size: 1rem;
+    margin: 0.4rem 0;
+}
+
+.btn-logout {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.5rem;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 600px) {
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-left {
+        margin-bottom: 1rem;
+    }
 }
 
 /* Card login */
@@ -94,6 +164,7 @@ button[type="submit"]:hover {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
