@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri UMKM</title>
+  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ <header class="header">
+    <div class="container header-container">
+      
+      <h1 class="logo"><a href="index.html" class="plain-link">GaleriUMKM</a></h1>
+      
+      <form class="search-form" role="search">
+        <input 
+          class="search-input" 
+          type="search" 
+          placeholder="Cari usaha..." 
+          aria-label="Search"
+        >
+        <button class="btn-outline" type="submit">Cari</button>
+      </form>
+      
+      <div class="auth-buttons">
+
+        <a href="form_login.html" class="btn-primary-sm">Login</a>
+      
+      </div>
+
+    </div>
+  </header>
+  <section class="form-section">
+    <div class="container">
+      <h2 class="judul">Tambah Usaha Kamu </h2>
+      <form class="form-usaha" action="#" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="nama">Nama Usaha</label>
+          <input type="text" id="nama" name="nama" required>
+        </div>
+
+        <div class="form-group">
+          <label for="kategori">Kategori</label>
+          <select id="kategori" name="kategori" required>
+            <option value="">-- Pilih Kategori --</option>
+            <option value="makanan">Makanan & Minuman</option>
+            <option value="kerajinan">Kerajinan</option>
+            <option value="fashion">Fashion</option>
+            <option value="jasa">Jasa</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="lokasi">Lokasi</label>
+          <input type="text" id="lokasi" name="lokasi" required>
+        </div>
+
+        <div class="form-group">
+          <label for="deskripsi">Deskripsi Usaha</label>
+          <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="gambar">Upload Gambar</label>
+          <input type="file" id="gambar" name="gambar" accept="image/*" required>
+        </div>
+
+        <div class="form-group text-center">
+          <button type="submit" class="btn-primary">Kirim Usaha</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+
+  <footer class="footer">
+    &copy; 2025 GaleriUMKM. Dibuat oleh kelompok mata kuliah Cloud Computing untuk UMKM Indonesia.
+  </footer>
+
+</body>
+</html>
