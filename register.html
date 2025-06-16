@@ -8,68 +8,57 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="header" style="background-color: linear-gradient(to right, #4facfe, #00f2fe);">
-    <div class="container header-container">
-      
-      <h1 class="logo"><a href="index.html" class="plain-link">GaleriUMKM</a></h1>
-      
-      <form class="search-form" role="search">
-        <input 
-          class="search-input" 
-          type="search" 
-          placeholder="Cari usaha..." 
-          aria-label="Search"
-        >
-        <button class="btn-outline" type="submit">Cari</button>
-      </form>
-      
-      <div class="auth-buttons">
-        <a href="register.html" class="btn-primary-sm">Submit Usaha</a>
-        <a href="form_login.html" class="btn-primary-sm">Login</a>
-        <a href="profil.html" class="btn-primary-sm">profil</a>
-      </div>
 
-    </div>
-  </header>
-
-  <section class="form-section form">
-    <div class="container">
-      <h2 class="judul">Register</h2>
-      <form class="form-usaha" action="#" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="nama">Nama </label>
-          <input type="text" id="nama" name="nama" required>
+    <header class="header">
+        <div class="header-container" style="text-align: center;">
+            <h1 class="logo"><a href="index.html" class="plain-link">GaleriUMKM</a></h1>
+            <div class="auth-button" style="padding-right: 10px;">
+                <a href="form_login.html" class="btn-primary-sm">Login</a>
+            </div>
         </div>
+    </header>
 
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email"  required>
+    
+    <section class="form-section form">
+        <div class="container">
+        <h2 class="judul">Register</h2>
+        <form class="form-usaha" action="#" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+            <label for="nama">Nama </label>
+            <input type="text" id="nama" name="nama" required>
+            </div>
+
+            <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"  required>
+            </div>
+
+            <div class="form-group">
+                <label for="nomor">Nomor Hp</label>
+                <input type="text" id="nomor" name="nomor" required>
+            </div>
+
+            <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"  required>
+            </div>
+
+
+            <div class="form-group text-center">
+            <button type="submit" class="btn-primary">Daftar</button>
+            </div>
+            <div class="form-text ">Sudah Punya Akun? <a href="form_login.html" class="plain-link"><Strong>Login Disini</strong></a></div>
+                
+        </form>
         </div>
+    </section>
+    
 
-        <div class="form-group">
-            <label for="nomor">Nomor Hp</label>
-            <input type="text" id="nomor" name="nomor" required>
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password"  required>
-        </div>
+    <footer class="footer">
+        &copy; 2025 GaleriUMKM. Dibuat oleh kelompok mata kuliah Cloud Computing untuk UMKM Indonesia.
+    </footer>
 
 
-        <div class="form-group text-center">
-          <button type="submit" class="btn-primary">Daftar</button>
-        </div>
-      </form>
-    </div>
-  </section>
-  
-
-  <footer class="footer">
-    &copy; 2025 GaleriUMKM. Dibuat oleh kelompok mata kuliah Cloud Computing untuk UMKM Indonesia.
-  </footer>
-
-
-  <script type="module" src="script/script.js"></script>
+    <script type="module" src="script/script.js"></script>
 </body>
 </html>

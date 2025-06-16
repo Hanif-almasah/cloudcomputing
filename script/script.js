@@ -27,7 +27,8 @@ const analytics = getAnalytics(app);
 const images = [
   "images/umkm1.png",
   "images/Foto1.jpg",
-  "images/umkm3.png"
+  "images/Foto2.jpg",
+  "images/Foto3.jpg"
 ];
 let index = 0;
 const slideshow = document.getElementById("slideshow");
@@ -45,3 +46,5 @@ setInterval(() => {
     slideshow.classList.remove("fade-out");
   }, 1000); // waktu fade-out: 1 detik
 }, 5000); // ganti setiap 10 detik
+
+// Navbar 

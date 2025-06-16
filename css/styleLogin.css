@@ -105,7 +105,7 @@ div.login {
 #slideshow {
     width: 100%;
     /* atau misalnya 300px */
-    height: 250px;
+    height: 264.96px;
     /* tinggi tetap */
     object-fit: cover;
     /* atau 'contain' sesuai kebutuhan */
@@ -114,8 +114,14 @@ div.login {
 }
 
 @media (max-width: 768px) {
-    #slideshow {
+    .gambar-card {
         display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        border-radius: 6px;
     }
 }
 
@@ -132,12 +138,24 @@ div.login {
 /* Card login */
 .card {
     background-color: white;
-    padding: 5px;
-    border-radius: 12px;
+
+    /* border-radius: 12px; */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     width: 360px;
     text-align: center;
     animation: fadeIn 0.5s ease-in-out;
+    justify-content: center;
+}
+
+.slide {
+    background-color: white;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    width: 210px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+    justify-content: center;
 }
 
 /* Judul */
