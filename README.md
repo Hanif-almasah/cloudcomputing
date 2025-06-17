@@ -94,3 +94,22 @@ Mahasiswa Universitas Pamulang
 [![GitHub](https://img.shields.io/badge/GitHub-EBRENTINAMBUNAN-181717?logo=github)](https://github.com/ebrentinambunan)
 
 Dengan semangat #BanggaBuatanIndonesia 🇮🇩
+
+---
+
+## 🗃 Struktur Koleksi Firestore
+
+Pastikan koleksi di Firestore kamu bernama **`products`** dan setiap dokumen di dalamnya memiliki struktur field seperti berikut:
+
+| Field        | Tipe Data | Keterangan                          |
+|--------------|-----------|--------------------------------------|
+| `name`       | string    | Nama produk                          |
+| `category`   | string    | Kategori produk (mis: makanan, jasa) |
+| `description`| string    | Deskripsi produk                     |
+| `price`      | string / number | Harga produk                   |
+| `image`      | string (base64) | Gambar produk dalam base64       |
+
+Contoh tampilan di Firebase Console:
+- Masuk ke menu **Firestore Database**
+- Klik koleksi `products`
+- Pastikan kolom yang ditampilkan adalah: `name`, `category`, `description`, `price`, dan `image`
