@@ -9,12 +9,13 @@
 
 ## 🚀 Fitur
 
-### 👤 Untuk Pembeli
+### 👤 Untuk Pembeli(https://hanif-almasah.github.io/cloudcomputing/)
+
 - Lihat daftar produk dari berbagai kategori.
 - Filter produk berdasarkan kategori.
 - Klik tombol **Beli** untuk membuka WhatsApp dengan detail produk dan data pembeli.
 
-### 🧑‍💼 Untuk Penjual (Seller)
+### 🧑‍💼 Untuk Penjual(https://hanif-almasah.github.io/cloudcomputing/seller)
 - Tambah produk baru lengkap dengan nama, kategori, deskripsi, harga, dan gambar.
 - Edit produk langsung di tampilan menggunakan SweetAlert2.
 - Hapus produk dengan konfirmasi.
