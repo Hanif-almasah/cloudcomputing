@@ -1,84 +1,201 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeri UMKM</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeri UMKM - Pembeli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f1f4f8;
+      color: #333;
+    }
+    header {
+      background: #ffffff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: center;
+    }
+    .logo a {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #007bff;
+      text-decoration: none;
+    }
+    .hero {
+      background: linear-gradient(135deg, #e0f0ff, #ffffff);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #007bff;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .filter-bar {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .filter-bar select {
+      padding: 0.6rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .card-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      overflow: hidden;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+    .card-body h5 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .card-body p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+      color: #777;
+    }
+    .footer {
+      background: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-container">
-      <h1 class="logo"><a href="index.html" class="plain-link">GaleriUMKM</a></h1>
-    </div>
+
+  <header>
+    <h1 class="logo"><a href="#">GaleriUMKM</a></h1>
   </header>
 
-
-
   <section class="hero">
-    <div class="container text-center">
-      <h2 class="title">Jelajahi Galeri Usaha Lokal</h2>
-      <p class="subtitle">Kami menampilkan foto-foto terbaik dari para pelaku UMKM di seluruh Indonesia. Ayo dukung mereka dengan melihat, membagikan, dan membeli produk lokal!</p>
-    </div>
+    <h2>Jelajahi Produk UMKM</h2>
+    <p>Kami menampilkan foto-foto terbaik dari para pelaku UMKM di seluruh Indonesia. Ayo dukung mereka dengan melihat, membagikan, dan membeli produk lokal!</p>
   </section>
 
-  <section class="gallery">
-    <div class="container">
-      <div class="filter-bar">
-        <label for="kategori">Filter Kategori:</label>
-        <select id="kategori">
-          <option selected>Semua</option>
-          <option value="makanan">Makanan & Minuman</option>
-          <option value="kerajinan">Kerajinan</option>
-          <option value="fashion">Fashion</option>
-          <option value="jasa">Jasa</option>
-        </select>
-      </div>
-
-      <div class="card-grid">
-        <div class="card" data-kategori="makanan">
-          <img src="images/umkm1.png" alt="Foto UMKM">
-          <div class="card-body">
-            <h5>Roti Mami</h5>
-            <p>Bandung</p>
-          </div>
-        </div>
-        <div class="card" data-kategori="kerajinan">
-          <img src="images/umkm1.png" alt="Foto UMKM">
-          <div class="card-body">
-            <h5>Kriya Cinta</h5>
-            <p>Yogyakarta</p>
-          </div>
-        </div>
-        <div class="card" data-kategori="makanan">
-          <img src="images/umkm1.png" alt="Foto UMKM">
-          <div class="card-body">
-            <h5>Kopi Pagi</h5>
-            <p>Jakarta</p>
-          </div>
-        </div>
-      </div>
+  <section class="container">
+    <div class="filter-bar">
+      <label for="kategori">Filter Kategori:</label>
+      <select id="kategori">
+        <option value="Semua" selected>Semua</option>
+        <option value="makanan">Makanan & Minuman</option>
+        <option value="kerajinan">Kerajinan</option>
+        <option value="fashion">Fashion</option>
+        <option value="jasa">Jasa</option>
+      </select>
     </div>
+
+    <div class="card-grid" id="produkList"></div>
   </section>
 
   <footer class="footer">
-    &copy; 2025 GaleriUMKM. Dibuat oleh kelompok mata kuliah Cloud Computing untuk UMKM Indonesia.
+    &copy; 2025 GaleriUMKM. Dibuat oleh mahasiswa Cloud Computing untuk Indonesia.
   </footer>
 
-  <script>
-    document.getElementById('kategori').addEventListener('change', function () {
-      const selected = this.value;
-      const cards = document.querySelectorAll('[data-kategori]');
-      cards.forEach(card => {
-        if (selected === 'Semua' || card.dataset.kategori === selected) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import {
+      getFirestore, collection, onSnapshot
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJr6zyzkq-b-XtpeneDig4tEKFdUZ1SB0",
+      authDomain: "galeriumkm-af9c7.firebaseapp.com",
+      projectId: "galeriumkm-af9c7",
+      storageBucket: "galeriumkm-af9c7.appspot.com",
+      messagingSenderId: "579650900137",
+      appId: "1:579650900137:web:7107247bed6785b4e999b8",
+      measurementId: "G-MRYJ0YY6LW"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const produkList = document.getElementById("produkList");
+    const kategoriFilter = document.getElementById("kategori");
+
+    let semuaProduk = [];
+
+    kategoriFilter.addEventListener("change", tampilkanProduk);
+
+    function tampilkanProduk() {
+      const selected = kategoriFilter.value;
+      produkList.innerHTML = "";
+      const filtered = selected === "Semua"
+        ? semuaProduk
+        : semuaProduk.filter(p => p.category === selected);
+
+      const displayProduk = filtered.slice(0, 9); // tampilkan maksimal 3 baris x 3 produk
+
+      if (displayProduk.length === 0) {
+        produkList.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>Tidak ada produk.</p>";
+        return;
+      }
+
+      displayProduk.forEach(data => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${data.image}" alt="${data.name}" />
+          <div class="card-body">
+            <h5>${data.name}</h5>
+            <p>${data.location || '-'}</p>
+          </div>`;
+        produkList.appendChild(card);
       });
+    }
+
+    onSnapshot(collection(db, "products"), (snapshot) => {
+      semuaProduk = [];
+      snapshot.forEach(doc => semuaProduk.push(doc.data()));
+      tampilkanProduk();
     });
   </script>
-
-   <script type="module" src="script/script.js"></script>
 </body>
 </html>
