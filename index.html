@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galeri UMKM - Pembeli</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     :root {
-      --primary: #0d6efd;
+      --primary: #dc3545;
       --bg-light: #f8f9fa;
       --text-dark: #212529;
       --text-muted: #6c757d;
       --radius: 12px;
-      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     }
     * { box-sizing: border-box; }
     body {
@@ -38,20 +39,57 @@
       color: var(--primary);
       text-decoration: none;
     }
-    .cart-button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: var(--radius);
-      cursor: pointer;
-      font-weight: 600;
-    }
+
     .hero {
-      background: linear-gradient(135deg, #e3f2fd, #ffffff);
-      padding: 3rem 1rem;
+      position: relative;
+      background: linear-gradient(135deg, #ff4d4d, #fff);
+      padding: 4rem 1rem 6rem;
       text-align: center;
+      color: #fff;
+      overflow: hidden;
     }
+    .hero h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #f8f9fa;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 120px;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" fill-opacity="1" d="M0,192L80,165.3C160,139,320,85,480,85.3C640,85,800,139,960,160C1120,181,1280,171,1360,165.3L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>') no-repeat bottom center;
+      background-size: cover;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero a.cta {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: #dc3545;
+      color: white;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .hero a.cta:hover {
+      background: #b02a37;
+    }
+
     .container {
       max-width: 1200px;
       margin: auto;
@@ -60,6 +98,12 @@
     .filter-bar {
       text-align: center;
       margin-bottom: 2rem;
+    }
+    .filter-bar select {
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      font-size: 1rem;
     }
     .card-grid {
       display: grid;
@@ -71,12 +115,20 @@
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
-      transition: transform 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
-    .card:hover { transform: translateY(-6px); }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    }
     .card img {
-      width: 100%; height: 250px; object-fit: cover;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: #f9f9f9;
+      padding: 1rem;
     }
     .card-body {
       padding: 1rem;
@@ -85,8 +137,9 @@
       gap: 0.3rem;
     }
     .card-body h5 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin: 0;
+      font-weight: 600;
     }
     .card-body p {
       margin: 0;
@@ -94,7 +147,7 @@
       color: #555;
     }
     .card-body .harga {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--primary);
       margin: 0.5rem 0;
     }
@@ -106,10 +159,19 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
     }
+    .card-body button:hover {
+      background: #b02a37;
+      transform: scale(1.02);
+    }
+
     .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.4);
-      display: none; justify-content: center; align-items: center;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
       z-index: 100;
     }
     .modal {
@@ -119,6 +181,34 @@
       max-width: 500px;
       width: 90%;
     }
+    .modal input, .modal textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .modal button {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .modal button:first-child {
+      background: var(--primary);
+      color: white;
+    }
+    .modal button:first-child:hover {
+      background: #a62833;
+    }
+    .modal button:last-child {
+      background: #dee2e6;
+      color: #333;
+      margin-left: 0.5rem;
+    }
+
     .footer {
       background: white;
       text-align: center;
@@ -126,18 +216,22 @@
       font-size: 0.9rem;
       color: var(--text-muted);
       border-top: 1px solid #eaeaea;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1 class="logo"><a href="#">GaleriUMKM</a></h1>
-    <button class="cart-button" onclick="showCart()">Lihat Keranjang</button>
   </header>
 
   <section class="hero">
-    <h2>Jelajahi Produk UMKM</h2>
-    <p>Dukung produk lokal dari pelaku UMKM Indonesia. Temukan yang unik dan menarik!</p>
+    <div class="hero-content">
+      <h2>Bangga Produk Lokal Indonesia</h2>
+      <p>Dukung UMKM dengan membeli karya anak bangsa! Dari makanan hingga kerajinan, semua ada di GaleriUMKM.</p>
+      <a href="#produkList" class="cta">Jelajahi Sekarang</a>
+    </div>
   </section>
 
   <section class="container">
@@ -157,12 +251,12 @@
   <div class="modal-overlay" id="formModal">
     <div class="modal">
       <h3>Isi Data Pembeli</h3>
-      <input type="text" id="buyerName" placeholder="Nama Anda" style="width:100%;padding:0.6rem;margin-bottom:0.5rem;" />
-      <input type="text" id="buyerPhone" placeholder="Nomor WhatsApp" style="width:100%;padding:0.6rem;margin-bottom:0.5rem;" />
-      <textarea id="buyerAddress" placeholder="Alamat Lengkap" rows="3" style="width:100%;padding:0.6rem;"></textarea>
-      <div style="margin-top:1rem;">
+      <input type="text" id="buyerName" placeholder="Nama Anda" />
+      <input type="text" id="buyerPhone" placeholder="Nomor WhatsApp" />
+      <textarea id="buyerAddress" placeholder="Alamat Lengkap" rows="3"></textarea>
+      <div>
         <button onclick="submitToWA()">Kirim ke WhatsApp</button>
-        <button onclick="closeForm()" style="background:#aaa;margin-left:10px;">Batal</button>
+        <button onclick="closeForm()">Batal</button>
       </div>
     </div>
   </div>
@@ -216,7 +310,11 @@
       const hp = document.getElementById("buyerPhone").value.trim();
       const alamat = document.getElementById("buyerAddress").value.trim();
       if (!nama || !hp || !alamat) {
-        alert("Harap lengkapi semua data!");
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops!',
+          text: 'Harap lengkapi semua data sebelum melanjutkan.'
+        });
         return;
       }
       const pesan = `Halo! Saya ingin membeli:%0A%0A` +
