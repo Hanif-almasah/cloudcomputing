@@ -88,15 +88,6 @@ Proyek ini dibuat untuk pembelajaran dan pengembangan digitalisasi UMKM. Bebas d
 
 ---
 
-## 🙌 Dibuat Oleh
-Mahasiswa Universitas Pamulang
-
-[![GitHub](https://img.shields.io/badge/GitHub-EBRENTINAMBUNAN-181717?logo=github)](https://github.com/ebrentinambunan)
-
-Dengan semangat #BanggaBuatanIndonesia 🇮🇩
-
----
-
 ## 🗃 Struktur Koleksi Firestore
 
 Pastikan koleksi di Firestore kamu bernama **`products`** dan setiap dokumen di dalamnya memiliki struktur field seperti berikut:
@@ -113,3 +104,12 @@ Contoh tampilan di Firebase Console:
 - Masuk ke menu **Firestore Database**
 - Klik koleksi `products`
 - Pastikan kolom yang ditampilkan adalah: `name`, `category`, `description`, `price`, dan `image`
+
+## 🙌 Dibuat Oleh
+Mahasiswa Universitas Pamulang
+
+[![GitHub](https://img.shields.io/badge/GitHub-EBRENTINAMBUNAN-181717?logo=github)](https://github.com/ebrentinambunan)
+
+Dengan semangat #BanggaBuatanIndonesia 🇮🇩
+
+---
