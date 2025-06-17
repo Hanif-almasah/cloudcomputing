@@ -6,56 +6,60 @@
   <title>Galeri UMKM - Pembeli</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --primary: #0d6efd;
+      --bg-light: #f8f9fa;
+      --text-dark: #212529;
+      --text-muted: #6c757d;
+      --radius: 12px;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #f1f4f8;
-      color: #333;
+      background: var(--bg-light);
+      color: var(--text-dark);
     }
     header {
-      background: #ffffff;
+      background: white;
       padding: 1rem 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .logo a {
       font-size: 1.8rem;
       font-weight: 700;
-      color: #007bff;
+      color: var(--primary);
       text-decoration: none;
     }
+    .cart-button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+    }
     .hero {
-      background: linear-gradient(135deg, #e0f0ff, #ffffff);
+      background: linear-gradient(135deg, #e3f2fd, #ffffff);
       padding: 3rem 1rem;
       text-align: center;
     }
-    .hero h2 {
-      font-size: 2.2rem;
-      color: #007bff;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #555;
-    }
     .container {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
       padding: 2rem 1rem;
     }
     .filter-bar {
-      margin-bottom: 2rem;
       text-align: center;
-    }
-    .filter-bar select {
-      padding: 0.6rem 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
+      margin-bottom: 2rem;
     }
     .card-grid {
       display: grid;
@@ -63,61 +67,77 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      background: white;
+      border-radius: var(--radius);
       overflow: hidden;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+      cursor: pointer;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    }
+    .card:hover { transform: translateY(-6px); }
     .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+      width: 100%; height: 250px; object-fit: cover;
     }
     .card-body {
       padding: 1rem;
-      flex-grow: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
+      gap: 0.3rem;
     }
     .card-body h5 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #333;
+      font-size: 1.1rem;
+      margin: 0;
     }
     .card-body p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-      color: #777;
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .card-body .harga {
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+    .card-body button {
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+      display: none; justify-content: center; align-items: center;
+      z-index: 100;
+    }
+    .modal {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      max-width: 500px;
+      width: 90%;
     }
     .footer {
-      background: #fff;
-      padding: 2rem 1rem;
+      background: white;
       text-align: center;
-      color: #777;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #eee;
+      color: var(--text-muted);
+      border-top: 1px solid #eaeaea;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1 class="logo"><a href="#">GaleriUMKM</a></h1>
+    <button class="cart-button" onclick="showCart()">Lihat Keranjang</button>
   </header>
 
   <section class="hero">
     <h2>Jelajahi Produk UMKM</h2>
-    <p>Kami menampilkan foto-foto terbaik dari para pelaku UMKM di seluruh Indonesia. Ayo dukung mereka dengan melihat, membagikan, dan membeli produk lokal!</p>
+    <p>Dukung produk lokal dari pelaku UMKM Indonesia. Temukan yang unik dan menarik!</p>
   </section>
 
   <section class="container">
@@ -131,70 +151,108 @@
         <option value="jasa">Jasa</option>
       </select>
     </div>
-
     <div class="card-grid" id="produkList"></div>
   </section>
 
+  <div class="modal-overlay" id="formModal">
+    <div class="modal">
+      <h3>Isi Data Pembeli</h3>
+      <input type="text" id="buyerName" placeholder="Nama Anda" style="width:100%;padding:0.6rem;margin-bottom:0.5rem;" />
+      <input type="text" id="buyerPhone" placeholder="Nomor WhatsApp" style="width:100%;padding:0.6rem;margin-bottom:0.5rem;" />
+      <textarea id="buyerAddress" placeholder="Alamat Lengkap" rows="3" style="width:100%;padding:0.6rem;"></textarea>
+      <div style="margin-top:1rem;">
+        <button onclick="submitToWA()">Kirim ke WhatsApp</button>
+        <button onclick="closeForm()" style="background:#aaa;margin-left:10px;">Batal</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
-    &copy; 2025 GaleriUMKM. Dibuat oleh mahasiswa Cloud Computing untuk Indonesia.
+    &copy; 2025 GaleriUMKM. Dibuat oleh Mahasiswa Cloud Computing Indonesia.
   </footer>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-    import {
-      getFirestore, collection, onSnapshot
-    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyAJr6zyzkq-b-XtpeneDig4tEKFdUZ1SB0",
-      authDomain: "galeriumkm-af9c7.firebaseapp.com",
-      projectId: "galeriumkm-af9c7",
-      storageBucket: "galeriumkm-af9c7.appspot.com",
-      messagingSenderId: "579650900137",
-      appId: "1:579650900137:web:7107247bed6785b4e999b8",
-      measurementId: "G-MRYJ0YY6LW"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const produkList = document.getElementById("produkList");
-    const kategoriFilter = document.getElementById("kategori");
-
+  <script>
     let semuaProduk = [];
-
-    kategoriFilter.addEventListener("change", tampilkanProduk);
+    let produkDipilih = null;
 
     function tampilkanProduk() {
-      const selected = kategoriFilter.value;
+      const selected = document.getElementById("kategori").value;
+      const produkList = document.getElementById("produkList");
       produkList.innerHTML = "";
-      const filtered = selected === "Semua"
-        ? semuaProduk
-        : semuaProduk.filter(p => p.category === selected);
-
-      const displayProduk = filtered.slice(0, 9); // tampilkan maksimal 3 baris x 3 produk
-
+      const filtered = selected === "Semua" ? semuaProduk : semuaProduk.filter(p => p.category === selected);
+      const displayProduk = filtered.slice(0, 9);
       if (displayProduk.length === 0) {
         produkList.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>Tidak ada produk.</p>";
         return;
       }
-
-      displayProduk.forEach(data => {
+      displayProduk.forEach((data) => {
         const card = document.createElement("div");
         card.className = "card";
+        const encodedData = encodeURIComponent(JSON.stringify(data));
         card.innerHTML = `
           <img src="${data.image}" alt="${data.name}" />
           <div class="card-body">
             <h5>${data.name}</h5>
-            <p>${data.location || '-'}</p>
+            <p><strong>Kategori:</strong> ${data.category}</p>
+            <p>${data.description.substring(0, 60)}...</p>
+            <p class="harga">Rp${parseInt(data.price).toLocaleString()}</p>
+            <button onclick='openForm("${encodedData}")'>Beli</button>
           </div>`;
         produkList.appendChild(card);
       });
     }
 
-    onSnapshot(collection(db, "products"), (snapshot) => {
-      semuaProduk = [];
-      snapshot.forEach(doc => semuaProduk.push(doc.data()));
-      tampilkanProduk();
+    function openForm(data) {
+      produkDipilih = JSON.parse(decodeURIComponent(data));
+      document.getElementById("formModal").style.display = "flex";
+    }
+
+    function closeForm() {
+      document.getElementById("formModal").style.display = "none";
+    }
+
+    function submitToWA() {
+      const nama = document.getElementById("buyerName").value.trim();
+      const hp = document.getElementById("buyerPhone").value.trim();
+      const alamat = document.getElementById("buyerAddress").value.trim();
+      if (!nama || !hp || !alamat) {
+        alert("Harap lengkapi semua data!");
+        return;
+      }
+      const pesan = `Halo! Saya ingin membeli:%0A%0A` +
+        `*${produkDipilih.name}*%0A` +
+        `Kategori: ${produkDipilih.category}%0A` +
+        `Harga: Rp${parseInt(produkDipilih.price).toLocaleString()}%0A%0A` +
+        `Nama: ${nama}%0A` +
+        `No. WA: ${hp}%0A` +
+        `Alamat: ${alamat}`;
+      const url = `https://wa.me/6282386341131?text=${pesan}`;
+      window.open(url, "_blank");
+      closeForm();
+    }
+
+    document.getElementById("kategori").addEventListener("change", tampilkanProduk);
+
+    import("https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js").then(({ initializeApp }) => {
+      import("https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js").then(({ getFirestore, collection, onSnapshot }) => {
+        const firebaseConfig = {
+          apiKey: "AIzaSyAJr6zyzkq-b-XtpeneDig4tEKFdUZ1SB0",
+          authDomain: "galeriumkm-af9c7.firebaseapp.com",
+          projectId: "galeriumkm-af9c7",
+          storageBucket: "galeriumkm-af9c7.appspot.com",
+          messagingSenderId: "579650900137",
+          appId: "1:579650900137:web:7107247bed6785b4e999b8",
+          measurementId: "G-MRYJ0YY6LW"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        onSnapshot(collection(db, "products"), (snapshot) => {
+          semuaProduk = [];
+          snapshot.forEach(doc => semuaProduk.push(doc.data()));
+          tampilkanProduk();
+        });
+      });
     });
   </script>
 </body>
