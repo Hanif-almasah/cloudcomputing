@@ -1,4 +1,4 @@
-# Galeri UMKM
+# Galeri UMKM KELOMPOK 5
 
 **Galeri UMKM** adalah aplikasi web yang membantu pelaku Usaha Mikro, Kecil, dan Menengah (UMKM) Indonesia untuk mempromosikan produk mereka secara digital. Aplikasi ini terdiri dari dua antarmuka utama:
 
