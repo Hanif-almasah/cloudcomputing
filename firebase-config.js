@@ -11,13 +11,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAJr6zyzkq-b-XtpeneDig4tEKFdUZ1SB0",
-  authDomain: "galeriumkm-af9c7.firebaseapp.com",
-  projectId: "galeriumkm-af9c7",
-  storageBucket: "galeriumkm-af9c7.appspot.com",
-  messagingSenderId: "579650900137",
-  appId: "1:579650900137:web:7107247bed6785b4e999b8",
-  measurementId: "G-MRYJ0YY6LW"
+  apiKey: "AIzaSyDjiyo56i6IQSXoVFM-WdVkk40mmjOr7h4",
+  authDomain: "cloudcomputing-galery.firebaseapp.com",
+  projectId: "cloudcomputing-galery",
+  storageBucket: "cloudcomputing-galery.firebasestorage.app",
+  messagingSenderId: "737145300409",
+  appId: "1:737145300409:web:3c9899da358e18bfe48268"
 };
 
 const app = initializeApp(firebaseConfig);
